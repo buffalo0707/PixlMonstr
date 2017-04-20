@@ -6,7 +6,7 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onPageLoad = function () {
-  ui.hideElements("show-signed-in")
+  ui.changeElementDisplay('show-signed-in', 'hide')
 }
 
 const onSignUp = function (event) {
