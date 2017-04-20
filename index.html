@@ -1,52 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>PixlMonstr</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<head>
+  <title>PixlMonstr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Compiled and minified JavaScript -->
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    </head>
-    <body class="container-fluid">
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" id="sign-up-email" placeholder="email address"> </br>
-          <input type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
-          <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" id="sign-in-email" placeholder="email address"> </br>
-          <input type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-      </form>
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign out!</legend>
-          <input type="submit" name="submit" value="Sign out!">
-        </fieldset>
-      </form>
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password</legend>
-          <input type="password" name="passwords[old]" id="sign-in-email" placeholder="current password"> </br>
-          <input type="password" name="passwords[new]" id="sign-in-password" placeholder="new password"></br>
-          <input type="submit" name="submit" value="Change Password!">
-        </fieldset>
-      </form>
-    </body>
+  <!-- Compiled and minified JavaScript -->
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
+</head>
+
+<body class="container-fluid">
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-left navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+  </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li id="sign-out-nav"><a href=#>Sign Out</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="sign-in-nav" data-toggle="modal" data-target="#sign-in-modal"><a href=#>Sign In</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="sign-up-nav" data-toggle="modal" data-target="#sign-up-modal"><a href=#>Sign Up</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="change-password-nav" data-toggle="modal" data-target="#change-password-modal"><a href=#>Change Password</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="stats-nav" data-toggle="modal" data-target="#stats-modal"><a href=#>Stats</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="about-nav" data-toggle="modal" data-target="#about-modal"><a href=#>About</a></li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <form id="sign-up">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input type="text" name="credentials[email]" id="sign-up-email" placeholder="email address"> </br>
+      <input type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
+      <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
+      <input type="submit" name="submit" value="Sign up!">
+    </fieldset>
+  </form>
+  <form id="sign-in">
+    <fieldset>
+      <legend>Sign in!</legend>
+      <input type="text" name="credentials[email]" id="sign-in-email" placeholder="email address"> </br>
+      <input type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
+      <input type="submit" name="submit" value="Sign in!">
+    </fieldset>
+  </form>
+  <form id="sign-out">
+    <fieldset>
+      <legend>Sign out!</legend>
+      <input type="submit" name="submit" value="Sign out!">
+    </fieldset>
+  </form>
+  <form id="change-password">
+    <fieldset>
+      <legend>Change Password</legend>
+      <input type="password" name="passwords[old]" id="sign-in-email" placeholder="current password"> </br>
+      <input type="password" name="passwords[new]" id="sign-in-password" placeholder="new password"></br>
+      <input type="submit" name="submit" value="Change Password!">
+    </fieldset>
+  </form>
+</body>
+
 </html>
