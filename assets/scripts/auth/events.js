@@ -5,6 +5,10 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
+const onPageLoad = function () {
+  ui.hideElements("show-signed-in")
+}
+
 const onSignUp = function (event) {
   // this refers to event.target
   const data = getFormFields(this)
@@ -46,5 +50,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onPageLoad
 }

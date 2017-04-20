@@ -2,6 +2,12 @@
 
 const store = require('../store.js')
 
+const hideElements = (elementClass) => {
+  const elementArray = document.getElementsByClassName(elementClass)
+  for (let i = 0; i < elementArray.length; i++) {
+    elementArray[i].style.display = 'none'
+  }
+}
 const signUpSuccess = (data) => {
   console.log(data)
 }
@@ -37,6 +43,7 @@ const changePasswordFailure = (error) => {
 }
 
 module.exports = {
+  hideElements,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
