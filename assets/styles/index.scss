@@ -1,6 +1,10 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+    padding-top: 65px;
+}
+
 .glyphicon-menu-hamburger {
-  color: white;
+  color: #ffffff;
 }

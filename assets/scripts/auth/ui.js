@@ -23,6 +23,8 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('success', data)
   store.user = data.user
+  changeElementDisplay('show-signed-in', 'show')
+  changeElementDisplay('show-signed-out', 'hide')
 }
 
 const signInFailure = (error) => {
@@ -32,6 +34,8 @@ const signInFailure = (error) => {
 const signOutSuccess = () => {
   console.log('signOut success ran and nothing was returned')
   store.user = {}
+  changeElementDisplay('show-signed-in', 'hide')
+  changeElementDisplay('show-signed-out', 'show')
 }
 
 const signOutFailure = (error) => {
