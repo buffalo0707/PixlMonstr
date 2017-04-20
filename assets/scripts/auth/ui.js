@@ -11,7 +11,6 @@ const changeElementDisplay = (elementClass, action) => {
   }
 }
 
-
 const signUpSuccess = (data) => {
   console.log(data)
 }
@@ -25,6 +24,7 @@ const signInSuccess = (data) => {
   store.user = data.user
   changeElementDisplay('show-signed-in', 'show')
   changeElementDisplay('show-signed-out', 'hide')
+  $('#sign-in-modal').modal('hide')
 }
 
 const signInFailure = (error) => {

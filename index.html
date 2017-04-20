@@ -22,65 +22,142 @@
   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-left navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-right navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
     <span class="sr-only">Toggle navigation</span>
     <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
   </button>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-left show-signed-in">
-          <li id="sign-out-nav" ><a href=#>Sign Out</a></li>
+        <ul class="nav navbar-nav navbar-right show-signed-in">
+          <li id="sign-out-nav"><a href=#>Sign Out</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-left show-signed-out">
+        <ul class="nav navbar-nav navbar-right show-signed-out">
           <li id="sign-in-nav" data-toggle="modal" data-target="#sign-in-modal"><a href=#>Sign In</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-left show-signed-out">
+        <ul class="nav navbar-nav navbar-right show-signed-out">
           <li id="sign-up-nav" data-toggle="modal" data-target="#sign-up-modal"><a href=#>Sign Up</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-left show-signed-in">
+        <ul class="nav navbar-nav navbar-right show-signed-in">
           <li id="change-password-nav" data-toggle="modal" data-target="#change-password-modal"><a href=#>Change Password</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-left">
+        <ul class="nav navbar-nav navbar-right">
           <li id="about-nav" data-toggle="modal" data-target="#about-modal"><a href=#>About</a></li>
         </ul>
       </div>
-      </div>
+    </div>
     </div>
   </nav>
+  <!-- Sign-inModal -->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="sign-in-modalLabel">Sign In</h4>
+        </div>
+        <form id="sign-in">
+          <div class="modal-body">
+            <div id="sign-in-alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Uh oh!:</span> Unable to login with this email and password
+            </div>
+            <input class="form-control" type="email" name="credentials[email]" id="sign-in-email" placeholder="email address"></br>
+            <input class="form-control" type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
+            <button id="sign-in-sign-up" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#sign-up-modal"> Not a user? Sign up!</button>
+          </div>
+          <div class="modal-footer">
+            <button id="sign-in-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- Sign-up Modal -->
+  <div class="modal" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="sign-up-modalLabel">Sign Up</h4>
+        </div>
+        <form id="sign-up">
+          <div class="modal-body">
+            <div id="sign-up-alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Uh oh!:</span> Sign up failed. You probably did it wrong.
+            </div>
+            <input class="form-control" type="email" name="credentials[email]" id="sign-up-email" placeholder="email address"></br>
+            <input class="form-control" type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
+            <input class="form-control" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="change-password-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="change-password-modalLabel">Change Password</h4>
+        </div>
+        <form id="change-password">
+          <div class="modal-body">
+            <div id="change-password-alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only"></span> Make sure you enter your old and new password.
+            </div>
 
+            <input id="current-password" class="form-control" type="password" name="passwords[old]" placeholder="current password"></br>
+            <input id="new-password" class="form-control" type="password" name="passwords[new]" placeholder="new password"></br>
+          </div>
+          <div class="modal-footer">
+            <button id="change-password-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button id="change-password-submit" type="submit" class="btn btn-primary">Change Password</button>
 
-
-  <form id="sign-up">
-    <fieldset>
-      <legend>Sign up!</legend>
-      <input type="text" name="credentials[email]" id="sign-up-email" placeholder="email address"> </br>
-      <input type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
-      <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
-      <input type="submit" name="submit" value="Sign up!">
-    </fieldset>
-  </form>
-  <form id="sign-in">
-    <fieldset>
-      <legend>Sign in!</legend>
-      <input type="text" name="credentials[email]" id="sign-in-email" placeholder="email address"> </br>
-      <input type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
-      <input type="submit" name="submit" value="Sign in!">
-    </fieldset>
-  </form>
-  <form id="sign-out">
-    <fieldset>
-      <legend>Sign out!</legend>
-      <input type="submit" name="submit" value="Sign out!">
-    </fieldset>
-  </form>
-  <form id="change-password">
-    <fieldset>
-      <legend>Change Password</legend>
-      <input type="password" name="passwords[old]" id="sign-in-email" placeholder="current password"> </br>
-      <input type="password" name="passwords[new]" id="sign-in-password" placeholder="new password"></br>
-      <input type="submit" name="submit" value="Change Password!">
-    </fieldset>
-  </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- About Modal -->
+  <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="about-modalLabel">About</h4>
+        </div>
+        <div class="modal-body">
+          <div class="page-header">
+            <h1>GalacTic-Tac-Toe<br>
+            <small> by Alan Henderson</small></h1>
+            <p class="lead">This site was made with love using:</p>
+            <ul class="list-group">
+              <li class="list-group-item">HTML/CSS</li>
+              <li class="list-group-item">JavaScript</li>
+              <li class="list-group-item">Bootstrap</li>
+              <li class="list-group-item">Ruby on Rails</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <section class="game-content">
+    <div class="row show-signed-in">
+      <div class="col-sm-12">AHH MONSTERS!</div>
+    </div>
+  </section>
 </body>
 
 </html>

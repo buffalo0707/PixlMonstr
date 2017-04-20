@@ -7,6 +7,7 @@ const ui = require('./ui')
 
 const onPageLoad = function () {
   ui.changeElementDisplay('show-signed-in', 'hide')
+  ui.changeElementDisplay('alert', 'hide')
 }
 
 const onSignUp = function (event) {
@@ -45,7 +46,7 @@ const onChangePassword = function (event) {
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out-nav').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
 }
 
