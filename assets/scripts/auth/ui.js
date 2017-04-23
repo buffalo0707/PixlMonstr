@@ -43,7 +43,7 @@ const signOutFailure = (error) => {
 }
 
 const changePasswordSuccess = () => {
-  console.log('changePassword success ran and nothing was returned')
+  $('#change-password-modal').modal('hide')
 }
 
 const changePasswordFailure = (error) => {

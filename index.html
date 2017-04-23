@@ -22,29 +22,28 @@
   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-right navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-left navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
     <span class="sr-only">Toggle navigation</span>
     <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
   </button>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right show-signed-in">
+        <ul class="nav navbar-nav navbar-left show-signed-in">
           <li id="sign-out-nav"><a href=#>Sign Out</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right show-signed-out">
+        <ul class="nav navbar-nav navbar-left show-signed-out">
           <li id="sign-in-nav" data-toggle="modal" data-target="#sign-in-modal"><a href=#>Sign In</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right show-signed-out">
+        <ul class="nav navbar-nav navbar-left show-signed-out">
           <li id="sign-up-nav" data-toggle="modal" data-target="#sign-up-modal"><a href=#>Sign Up</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right show-signed-in">
+        <ul class="nav navbar-nav navbar-left show-signed-in">
           <li id="change-password-nav" data-toggle="modal" data-target="#change-password-modal"><a href=#>Change Password</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-left">
           <li id="about-nav" data-toggle="modal" data-target="#about-modal"><a href=#>About</a></li>
         </ul>
       </div>
-    </div>
     </div>
   </nav>
   <!-- Sign-inModal -->
@@ -119,7 +118,6 @@
           <div class="modal-footer">
             <button id="change-password-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button id="change-password-submit" type="submit" class="btn btn-primary">Change Password</button>
-
           </div>
         </form>
       </div>
@@ -153,10 +151,16 @@
     </div>
   </div>
   <!-- End Modal -->
-  <section class="game-content">
-    <div class="row show-signed-in">
-      <div class="col-sm-12">AHH MONSTERS!</div>
+  <section class="landing show-signed-out">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>pixlmonstr</h1>
+        <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#sign-in-modal">Sign In &raquo;</a></p>
+      </div>
     </div>
+  </section>
+  <section class="game-content">
+
   </section>
 </body>
 

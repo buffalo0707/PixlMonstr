@@ -1,10 +1,32 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+$light-text-color: #fff;
+$game-background-color: #2d3a42;
+
 body {
-    padding-top: 65px;
+  background-color: $game-background-color;
+  color: $light-text-color;
+  padding-top: 65px;
+
 }
 
-.glyphicon-menu-hamburger {
-  color: #ffffff;
+.landing {
+  background-image: url('../images/cave.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  padding-top: 65px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.jumbotron {
+  background: none;
+  color: $light-text-color;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -20px;
 }
