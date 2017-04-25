@@ -12,10 +12,20 @@ const onGetMonsters = function () {
   .catch(ui.getMonstersFailures)
 }
 
+const onCreateMonster = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data);
+  api.createMonster(data)
+    .then(ui.createMonsterSuccess)
+    .catch(ui.createMonsterFailure)
+}
+
 const addHandlers = () => {
-$('#get-monsters').on('click', onGetMonsters)
+  $('#get-monsters').on('click', onGetMonsters)
+  $('#create-monster').on('submit', onCreateMonster)
 }
 
 module.exports = {
-  addHandlers,
+  addHandlers
 }

@@ -12,7 +12,6 @@ const changeElementDisplay = (elementClass, action) => {
 }
 
 const signUpSuccess = (data) => {
-  console.log(data)
 }
 
 const signUpFailure = (error) => {

@@ -3,14 +3,23 @@
 const store = require('../store.js')
 
 const getMonstersSuccess = function (data) {
-console.log(data)
 }
 
 const getMonstersFailures = function () {
 
 }
 
+const createMonsterSuccess = function (data) {
+console.log(data)
+}
+
+const createMonsterFailure = function () {
+
+}
+
 module.exports = {
-getMonstersSuccess,
-getMonstersFailures
+  getMonstersSuccess,
+  getMonstersFailures,
+  createMonsterSuccess,
+  createMonsterFailure
 }
