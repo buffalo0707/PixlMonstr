@@ -1,0 +1,18 @@
+{{#each monsters as |monster|}}
+
+  <!-- {{> partial}}
+  Don't uncomment yet -->
+
+ <!-- Developers, why are we using data-id and not just id? -->
+ <div class="col-md-4 text-center">
+  <ul data-id="{{monster.id}}">
+    <li>Name: {{monster.name}} </li>
+    <li>Hunger: {{monster.hunger}}</li>
+    <li>Mood: {{monster.mood}}</li>
+    <li>Cleanliness: {{monster.cleanliness}}</li>
+    <li><button id="delete_monster">Delete</button></li>
+  </ul>
+
+</div>
+
+{{/each}}
