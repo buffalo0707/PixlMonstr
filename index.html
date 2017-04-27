@@ -163,18 +163,26 @@
   </section>
   <section id="game_content" class="show-signed-in">
     <section id="monsters_overview">
-    <p><a class="btn btn-primary btn-lg" role="button" id="get-monsters">get monsters</a></p>
-    <div class="row content"></div>
-    <form id="create-monster">
-      <div class="col-md-3"><input class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br></div>
-      <button type="submit" class="btn btn-primary">Create Monster</button>
-    </form>
-  </section>
-  <section id="monster_details" class="logout-hide game-inner-view">
-    <div class="row monster-detail"></div>
-    <button type="submit" id="back-to-overview"class="btn btn-primary">Back</button>
+      <p><a class="btn btn-primary btn-lg" role="button" id="get-monsters">get monsters</a></p>
+      <div class="row content"></div>
+      <form id="create-monster">
+        <div class="col-md-3"><input class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
+        </div>
+        <div>
+        <select name=monster[type]> <!--Supplement an id here instead of using 'name'-->
+          <option value="bat">Bat</option>
+          <option value="ghost" selected>Ghost</option>
+          <option value="squid">Squid</option>
+        </select>
+      </div>
+        <button type="submit" class="btn btn-primary">Create Monster</button>
+      </form>
+    </section>
+    <section id="monster_details" class="logout-hide game-inner-view">
+      <div class="row monster-detail"></div>
+      <button type="submit" id="back-to-overview" class="btn btn-primary">Back</button>
 
-  </section>
+    </section>
   </section>
 </body>
 
