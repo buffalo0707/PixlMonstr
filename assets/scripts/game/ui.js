@@ -37,8 +37,9 @@ const deleteMonsterFailure = function () {
 
 const addHandlebarsEvents = function () {
   $('.delete_monster').on('click', function (event) {
+    const id = $(event.target).parent().parent().parent().attr('data-id')
+    console.log(id);
     $(event.target).parent().parent().remove()
-    const id = $(event.target).parent().parent().attr('data-id')
     api.deleteMonster(id)
       .then(deleteMonsterSuccess)
       .catch(deleteMonsterFailure)
@@ -117,6 +118,9 @@ const getMonster = function (id) {
 const goBack = function () {
   $('#monsters_overview').show()
   $('#monster_details').hide()
+  api.getMonsters()
+    .then(getMonstersSuccess)
+    .catch(getMonstersFailure)
 }
 
 module.exports = {

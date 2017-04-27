@@ -1,10 +1,11 @@
 'use strict'
 
-const Monster = function (id, name, hunger, mood, cleanliness) {
+const Monster = function (id, name, hunger, mood, cleanliness, type) {
   this.id = id
   this.name = name
   this.hunger = hunger
   this.mood = mood
+  this.type = type
   this.cleanliness = cleanliness
 }
 
@@ -15,14 +16,14 @@ Monster.prototype.feed = function () {
 }
 
 Monster.prototype.clean = function () {
-  console.log('cleaning!');
+  console.log('cleaning!')
   if (this.cleanliness < 15) {
     this.cleanliness += 1
   }
 }
 
 Monster.prototype.play = function () {
-  console.log('playing!');
+  console.log('playing!')
   if (this.mood < 15) {
     this.mood += 1
   }

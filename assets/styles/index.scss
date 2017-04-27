@@ -31,14 +31,30 @@ body {
   margin-top: -20px;
 }
 
-.monster-image {
+.monster-image-small {
   height: 100px;
   width: 100px;
-
 }
 
 .monster-image-large {
   height: 300px;
   width: 300px;
+}
 
+.bat{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/klK8v0A.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.squid{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/AhF7kvd.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
