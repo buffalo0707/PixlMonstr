@@ -1,0 +1,14 @@
+{{#each monsters as |monster|}}
+
+ <div class="col-md-4 text-center">
+  <ul class="list-unstyled" data-id="{{monster.id}}">
+    <li>Name: {{monster.name}} <button class="rename_monster btn btn-primary btn-xs">Rename</button></li>
+    <li>Hunger: {{monster.hunger}} <button class="feed_monster btn btn-primary btn-xs">Feed</button></li>
+    <li>Mood: {{monster.mood}} <button class="play_with_monster btn btn-primary btn-xs">Play</button></li>
+    <li>Cleanliness: {{monster.cleanliness}} <button class="clean_monster btn btn-primary btn-xs">Clean</button></li>
+    <li><button class="delete_monster clean_monster btn btn-primary btn-xs">Set free!</button></li>
+  </ul>
+
+</div>
+
+{{/each}}

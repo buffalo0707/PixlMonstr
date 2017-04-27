@@ -12,6 +12,16 @@ const getMonsters = () => {
   })
 }
 
+const getMonster = (id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/monsters/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const createMonster = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/monsters',
@@ -23,7 +33,32 @@ const createMonster = (data) => {
   })
 }
 
+const deleteMonster = (id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/monsters/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateMonster = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/monsters/' + store.monster.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+
 module.exports = {
   getMonsters,
-  createMonster
+  createMonster,
+  deleteMonster,
+  getMonster,
+  updateMonster
 }

@@ -8,6 +8,7 @@ const ui = require('./ui')
 const onPageLoad = function () {
   ui.changeElementDisplay('show-signed-in', 'hide')
   ui.changeElementDisplay('alert', 'hide')
+  ui.changeElementDisplay('game-inner-view', 'hide')
 }
 
 const onSignUp = function (event) {

@@ -34,7 +34,10 @@ const signOutSuccess = () => {
   console.log('signOut success ran and nothing was returned')
   store.user = {}
   changeElementDisplay('show-signed-in', 'hide')
+  changeElementDisplay('logout-hide', 'hide')
   changeElementDisplay('show-signed-out', 'show')
+  $('.content').empty()
+
 }
 
 const signOutFailure = (error) => {
