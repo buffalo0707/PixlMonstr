@@ -46,17 +46,17 @@ const addHandlebarsEvents = function () {
       .then(getMonsterSuccess)
       .catch(getMonsterFailure)
   })
-  $('.rename_monster').on('click', function () {
-    const data = {}
-    api.updateMonster(data)
+  $('.feed_monster').on('click', function () {
+    store.data.monster.hunger += 1
+    api.updateMonster(store.data)
       .then(updateMonsterSuccess)
       .catch(updateMonsterFailure)
   })
 }
 
 const getMonsterSuccess = function (data) {
-  store.monster = data.monster
-  console.log('store.monster is ', store.monster);
+  store.data = data
+  console.log('store.monster is ', store.data);
   $('#monsters_overview').hide()
   $('#monster_details').show()
   const showMonsterHTML = showMonsterDetailTemplate({ monsters: data })
@@ -70,7 +70,10 @@ const getMonsterFailure = function () {
 }
 
 const updateMonsterSuccess = function () {
-console.log('Update Monster ran like omg');
+  const id = store.data.monster.id
+  api.getMonster(id)
+    .then(getMonsterSuccess)
+    .catch(getMonsterFailure)
 }
 
 const updateMonsterFailure = function () {
