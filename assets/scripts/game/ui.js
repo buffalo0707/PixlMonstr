@@ -6,6 +6,8 @@ const showMonstersTemplate = require('../templates/monsters.handlebars')
 const showMonsterDetailTemplate = require('../templates/monster-detail.handlebars')
 const monsterObject = require('./monster.js')
 
+const monster = new monsterObject.Monster()
+
 const getMonstersSuccess = function (data) {
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
   $('.content').empty()
@@ -43,23 +45,25 @@ const addHandlebarsEvents = function () {
   })
   $('.view_monster').on('click', function (event) {
     const id = $(event.target).parent().parent().attr('data-id')
-    api.getMonster(id)
-      .then(getMonsterSuccess)
-      .catch(getMonsterFailure)
+    getMonster(id)
   })
-  $('.rename_monster').on('click', function () {
-    const data = {}
-    api.updateMonster(data)
-      .then(updateMonsterSuccess)
-      .catch(updateMonsterFailure)
+  $('.feed_monster').on('click', function (event) {
+    monster.feed()
+    updateMonster()
+    getMonster(monster.id)
   })
 }
 
+const setMonsterParams = function (data){
+  for (const key in monster) {
+    if (monster.hasOwnProperty(key)) {
+      monster[key] = data.monster[key]
+    }
+  }
+}
+
 const getMonsterSuccess = function (data) {
-  store.monster = data.monster
-  const monster = new monsterObject.Monster(store.monster.name, store.monster.hunger)
-  console.log('monster is ', monster)
-  console.log('store.monster is ', monster)
+  setMonsterParams(data)
   $('#monsters_overview').hide()
   $('#monster_details').show()
   const showMonsterHTML = showMonsterDetailTemplate({ monsters: data })
@@ -68,16 +72,34 @@ const getMonsterSuccess = function (data) {
   addHandlebarsEvents()
 }
 
-const getMonsterFailure = function () {
-
+const getMonsterFailure = function (error) {
+  console.log(error)
 }
 
 const updateMonsterSuccess = function () {
-console.log('Update Monster ran like omg');
+  console.log('Update Monster ran like omg')
 }
 
-const updateMonsterFailure = function () {
+const updateMonsterFailure = function error() {
+  console.log(error)
+}
 
+const updateMonster = function () {
+  const data = {'monster': {}}
+  // strips prototypes off object for api consumption
+  for (const key in monster) {
+    if (typeof monster[key] === 'function') continue
+    data.monster[key] = monster[key]
+  }
+  api.updateMonster(data)
+    .then(updateMonsterSuccess)
+    .catch(updateMonsterFailure)
+}
+
+const getMonster = function (id) {
+  api.getMonster(id)
+    .then(getMonsterSuccess)
+    .catch(getMonsterFailure)
 }
 
 const goBack = function () {
