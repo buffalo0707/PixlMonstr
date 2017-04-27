@@ -4,6 +4,7 @@ const store = require('../store.js')
 const api = require('./api')
 const showMonstersTemplate = require('../templates/monsters.handlebars')
 const showMonsterDetailTemplate = require('../templates/monster-detail.handlebars')
+const monsterObject = require('./monster.js')
 
 const getMonstersSuccess = function (data) {
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
@@ -56,7 +57,9 @@ const addHandlebarsEvents = function () {
 
 const getMonsterSuccess = function (data) {
   store.monster = data.monster
-  console.log('store.monster is ', store.monster);
+  const monster = new monsterObject.Monster(store.monster.name, store.monster.hunger)
+  console.log('monster is ', monster)
+  console.log('store.monster is ', monster)
   $('#monsters_overview').hide()
   $('#monster_details').show()
   const showMonsterHTML = showMonsterDetailTemplate({ monsters: data })
