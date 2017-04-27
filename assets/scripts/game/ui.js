@@ -52,6 +52,16 @@ const addHandlebarsEvents = function () {
     updateMonster()
     getMonster(monster.id)
   })
+  $('.clean_monster').on('click', function (event) {
+    monster.clean()
+    updateMonster()
+    getMonster(monster.id)
+  })
+  $('.play_with_monster').on('click', function (event) {
+    monster.play()
+    updateMonster()
+    getMonster(monster.id)
+  })
 }
 
 const setMonsterParams = function (data){
@@ -85,12 +95,14 @@ const updateMonsterFailure = function (error) {
 }
 
 const updateMonster = function () {
+  console.log('updating');
   const data = {'monster': {}}
   // strips prototypes off object for api consumption
   for (const key in monster) {
     if (typeof monster[key] === 'function') continue
     data.monster[key] = monster[key]
   }
+  console.log(data);
   api.updateMonster(data)
     .then(updateMonsterSuccess)
     .catch(updateMonsterFailure)

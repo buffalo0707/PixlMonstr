@@ -9,8 +9,23 @@ const Monster = function (id, name, hunger, mood, cleanliness) {
 }
 
 Monster.prototype.feed = function () {
-  console.log("monster feed is happening. totes cray")
-  this.hunger += 1
+  if (this.hunger < 15) {
+    this.hunger += 1
+  }
+}
+
+Monster.prototype.clean = function () {
+  console.log('cleaning!');
+  if (this.cleanliness < 15) {
+    this.cleanliness += 1
+  }
+}
+
+Monster.prototype.play = function () {
+  console.log('playing!');
+  if (this.mood < 15) {
+    this.mood += 1
+  }
 }
 
 module.exports = {
