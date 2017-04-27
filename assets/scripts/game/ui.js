@@ -47,18 +47,10 @@ const addHandlebarsEvents = function () {
     const id = $(event.target).parent().parent().attr('data-id')
     getMonster(id)
   })
-<<<<<<< HEAD
-  $('.feed_monster').on('click', function () {
-    store.data.monster.hunger += 1
-    api.updateMonster(store.data)
-      .then(updateMonsterSuccess)
-      .catch(updateMonsterFailure)
-=======
   $('.feed_monster').on('click', function (event) {
     monster.feed()
     updateMonster()
     getMonster(monster.id)
->>>>>>> dev
   })
 }
 
@@ -71,12 +63,7 @@ const setMonsterParams = function (data){
 }
 
 const getMonsterSuccess = function (data) {
-<<<<<<< HEAD
-  store.data = data
-  console.log('store.monster is ', store.data);
-=======
   setMonsterParams(data)
->>>>>>> dev
   $('#monsters_overview').hide()
   $('#monster_details').show()
   const showMonsterHTML = showMonsterDetailTemplate({ monsters: data })
@@ -90,17 +77,10 @@ const getMonsterFailure = function (error) {
 }
 
 const updateMonsterSuccess = function () {
-<<<<<<< HEAD
-  const id = store.data.monster.id
-  api.getMonster(id)
-    .then(getMonsterSuccess)
-    .catch(getMonsterFailure)
-=======
-  console.log('Update Monster ran like omg')
->>>>>>> dev
+  getMonster(monster.id)
 }
 
-const updateMonsterFailure = function error() {
+const updateMonsterFailure = function (error) {
   console.log(error)
 }
 

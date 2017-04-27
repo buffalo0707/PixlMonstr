@@ -45,11 +45,7 @@ const deleteMonster = (id) => {
 
 const updateMonster = (data) => {
   return $.ajax({
-<<<<<<< HEAD
-    url: config.apiOrigin + '/monsters/' + store.data.monster.id,
-=======
     url: config.apiOrigin + '/monsters/' + data.monster.id,
->>>>>>> dev
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -57,7 +53,6 @@ const updateMonster = (data) => {
     data
   })
 }
-
 
 module.exports = {
   getMonsters,
