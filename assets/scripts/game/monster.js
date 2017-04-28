@@ -20,21 +20,21 @@ const Monster = function (id,
 }
 
 Monster.prototype.feed = function () {
-  if (this.hunger < 15) {
+  if (this.hunger < 5) {
     this.hunger += 1
   }
 }
 
 Monster.prototype.clean = function () {
   console.log('cleaning!')
-  if (this.cleanliness < 15) {
+  if (this.cleanliness < 5) {
     this.cleanliness += 1
   }
 }
 
 Monster.prototype.play = function () {
   console.log('playing!')
-  if (this.mood < 15) {
+  if (this.mood < 5) {
     this.mood += 1
   }
 }
