@@ -1,6 +1,15 @@
 'use strict'
 
-const Monster = function (id, name, hunger, mood, cleanliness, type, updatedAt) {
+const Monster = function (id,
+                          name,
+                          hunger,
+                          mood,
+                          cleanliness,
+                          type,
+                          updatedAt,
+                          eatRate,
+                          poopRate,
+                          boredRate) {
   this.id = id
   this.name = name
   this.hunger = hunger
@@ -8,7 +17,6 @@ const Monster = function (id, name, hunger, mood, cleanliness, type, updatedAt) 
   this.type = type
   this.cleanliness = cleanliness
   this.updated_at = updatedAt
-
 }
 
 Monster.prototype.feed = function () {
@@ -38,7 +46,47 @@ Monster.prototype.hoursSinceUpdate = function () {
   dateDiff /= 1000
   dateDiff /= 60
   dateDiff /= 60
-  return dateDiff
+  return Math.floor(dateDiff)
+}
+
+Monster.prototype.eatAndPoop = function () {
+  const hours = this.hoursSinceUpdate()
+  const startHunger = this.hunger
+  const startCleanliness = this.cleanliness
+  const startMood = this.mood
+  const eatRate = 1
+  const poopRate = 1
+  const boredRate = 1
+
+  if (hours >= 4) {
+    this.hunger -= eatRate
+    this.cleanliness -= poopRate
+    this.mood -= boredRate
+  }
+  if (hours >= 8) {
+    this.hunger -= eatRate
+    this.cleanliness -= poopRate
+    this.mood -= boredRate
+  }
+  if (hours >= 12) {
+    this.hunger -= eatRate
+    this.cleanliness -= poopRate
+    this.mood -= boredRate
+  }
+  if (hours >= 16) {
+    this.hunger -= eatRate
+    this.cleanliness -= poopRate
+    this.mood -= boredRate
+  }
+  if (hours >= 20) {
+    this.hunger -= eatRate
+    this.cleanliness -= poopRate
+    this.mood -= boredRate
+  }
+  if (this.hunger === startHunger &&
+      this.mood === startMood &&
+      this.cleanliness === startCleanliness) return false
+  return true
 }
 
 module.exports = {

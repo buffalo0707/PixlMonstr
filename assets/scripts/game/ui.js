@@ -74,15 +74,13 @@ const setMonsterParams = function (data){
 
 const getMonsterSuccess = function (data) {
   setMonsterParams(data)
+  if (monster.eatAndPoop()) updateMonster()
   $('#monsters_overview').hide()
   $('#monster_details').show()
-  const showMonsterHTML = showMonsterDetailTemplate({ monsters: data })
+  const showMonsterHTML = showMonsterDetailTemplate({monster})
   $('.monster-detail').empty()
   $('.monster-detail').append(showMonsterHTML)
   addHandlebarsEvents()
-  let test = monster.hoursSinceUpdate()
-  console.log('hours is', test);
-
 }
 
 const getMonsterFailure = function (error) {
