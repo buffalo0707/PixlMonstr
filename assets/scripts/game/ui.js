@@ -38,7 +38,6 @@ const deleteMonsterFailure = function () {
 const addHandlebarsEvents = function () {
   $('.delete_monster').on('click', function (event) {
     const id = $(event.target).parent().parent().parent().attr('data-id')
-    console.log(id);
     $(event.target).parent().parent().remove()
     api.deleteMonster(id)
       .then(deleteMonsterSuccess)
@@ -81,6 +80,9 @@ const getMonsterSuccess = function (data) {
   $('.monster-detail').empty()
   $('.monster-detail').append(showMonsterHTML)
   addHandlebarsEvents()
+  let test = monster.hoursSinceUpdate()
+  console.log('hours is', test);
+
 }
 
 const getMonsterFailure = function (error) {
@@ -97,6 +99,7 @@ const updateMonsterFailure = function (error) {
 
 const updateMonster = function () {
   console.log('updating');
+  console.log(monster);
   const data = {'monster': {}}
   // strips prototypes off object for api consumption
   for (const key in monster) {
