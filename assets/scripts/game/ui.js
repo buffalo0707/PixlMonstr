@@ -37,8 +37,8 @@ const deleteMonsterFailure = function () {
 
 const addHandlebarsEvents = function () {
   $('.delete_monster').on('click', function (event) {
+    const id = $(event.target).parent().parent().parent().attr('data-id')
     $(event.target).parent().parent().remove()
-    const id = $(event.target).parent().parent().attr('data-id')
     api.deleteMonster(id)
       .then(deleteMonsterSuccess)
       .catch(deleteMonsterFailure)
@@ -74,9 +74,10 @@ const setMonsterParams = function (data){
 
 const getMonsterSuccess = function (data) {
   setMonsterParams(data)
+  if (monster.eatAndPoop()) updateMonster()
   $('#monsters_overview').hide()
   $('#monster_details').show()
-  const showMonsterHTML = showMonsterDetailTemplate({ monsters: data })
+  const showMonsterHTML = showMonsterDetailTemplate({monster})
   $('.monster-detail').empty()
   $('.monster-detail').append(showMonsterHTML)
   addHandlebarsEvents()
@@ -96,6 +97,7 @@ const updateMonsterFailure = function (error) {
 
 const updateMonster = function () {
   console.log('updating');
+  console.log(monster);
   const data = {'monster': {}}
   // strips prototypes off object for api consumption
   for (const key in monster) {
@@ -117,6 +119,9 @@ const getMonster = function (id) {
 const goBack = function () {
   $('#monsters_overview').show()
   $('#monster_details').hide()
+  api.getMonsters()
+    .then(getMonstersSuccess)
+    .catch(getMonstersFailure)
 }
 
 module.exports = {
