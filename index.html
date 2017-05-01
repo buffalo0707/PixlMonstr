@@ -59,8 +59,8 @@
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               <span class="sr-only">Uh oh!:</span> Unable to login with this email and password
             </div>
-            <input class="form-control" type="email" name="credentials[email]" id="sign-in-email" placeholder="email address"></br>
-            <input class="form-control" type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
+            <input required="true" class="form-control" type="email" name="credentials[email]" id="sign-in-email" placeholder="email address"></br>
+            <input required="true" class="form-control" type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
             <button id="sign-in-sign-up" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#sign-up-modal"> Not a user? Sign up!</button>
           </div>
           <div class="modal-footer">
@@ -85,9 +85,9 @@
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               <span class="sr-only">Uh oh!:</span> Sign up failed. You probably did it wrong.
             </div>
-            <input class="form-control" type="email" name="credentials[email]" id="sign-up-email" placeholder="email address"></br>
-            <input class="form-control" type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
-            <input class="form-control" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
+            <input required="true" class="form-control" type="email" name="credentials[email]" id="sign-up-email" placeholder="email address"></br>
+            <input required="true" class="form-control" type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
+            <input required="true" class="form-control" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -112,8 +112,8 @@
               <span class="sr-only"></span> Make sure you enter your old and new password.
             </div>
 
-            <input id="current-password" class="form-control" type="password" name="passwords[old]" placeholder="current password"></br>
-            <input id="new-password" class="form-control" type="password" name="passwords[new]" placeholder="new password"></br>
+            <input required="true" id="current-password" class="form-control" type="password" name="passwords[old]" placeholder="current password"></br>
+            <input required="true" id="new-password" class="form-control" type="password" name="passwords[new]" placeholder="new password"></br>
           </div>
           <div class="modal-footer">
             <button id="change-password-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -165,23 +165,42 @@
     <section id="monsters_overview">
       <p><a class="btn btn-primary btn-lg" role="button" id="get-monsters">get monsters</a></p>
       <div class="row content"></div>
-      <form id="create-monster">
-        <div class="col-md-3"><input class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
+      <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#create-monster-modal">New Monster</a></p>
+
+      <!-- New Monster Modal -->
+      <div class="modal fade" id="create-monster-modal" tabindex="-1" role="dialog" aria-labelledby="create-monster-modalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="create-monster-modalLabel">Change Password</h4>
+            </div>
+            <form id="create-monster">
+              <div class="modal-body">
+                <div id="create-monster-alert" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only"></span> Make sure you enter your old and new password.
+                </div>
+                <input required="true" class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
+                  <select class="form-control" name=monster[type]> <!--Supplement an id here instead of using 'name'-->
+                    <option value="bat">Bat</option>
+                    <option value="ghost">Ghost</option>
+                    <option value="squid">Squid</option>
+                  </select>
+                  <button id="create-monster" type="submit" class="btn btn-primary">Create Monster</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div>
-        <select name=monster[type]> <!--Supplement an id here instead of using 'name'-->
-          <option value="bat">Bat</option>
-          <option value="ghost" selected>Ghost</option>
-          <option value="squid">Squid</option>
-        </select>
       </div>
-        <button type="submit" class="btn btn-primary">Create Monster</button>
-      </form>
+      <!-- End Modal -->
     </section>
     <section id="monster_details" class="logout-hide game-inner-view">
       <div class="row monster-detail"></div>
       <button type="submit" id="back-to-overview" class="btn btn-primary">Back</button>
-
     </section>
   </section>
 </body>

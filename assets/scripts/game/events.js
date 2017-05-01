@@ -32,6 +32,9 @@ const addHandlers = () => {
   $('#get-monsters').on('click', onGetMonsters)
   $('#create-monster').on('submit', onCreateMonster)
   $('#back-to-overview').on('click', onGoBackToOverview)
+  $('#create-monster-modal').on('hidden.bs.modal', function () {
+    $(this).find('form')[0].reset()
+  })
 }
 
 module.exports = {

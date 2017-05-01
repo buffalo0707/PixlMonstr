@@ -38,6 +38,7 @@ const getMonstersFailure = function () {
 
 const createMonsterSuccess = function (data) {
   getMonsters()
+  $('#create-monster-modal').modal('toggle');
 }
 
 const createMonsterFailure = function () {
