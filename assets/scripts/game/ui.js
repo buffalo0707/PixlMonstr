@@ -9,14 +9,13 @@ const monsterObject = require('./monster.js')
 const monster = new monsterObject.Monster()
 
 const getMonstersSuccess = function (data) {
-
   // to-do: for each monster in data
   // set monster object using stats for that monster
   // check eatAndPoop()
   //    if true, update monster and run get monster again
   // check is dead
   //  update image based on status
-
+  store.data = data
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
   $('.content').empty()
   $('.content').append(showMonsterHTML)
