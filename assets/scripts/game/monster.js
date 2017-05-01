@@ -25,18 +25,14 @@ Monster.prototype.feed = function () {
   if (this.status === 'dead') {
     return
   }
-  if (this.hunger < 5) {
-    this.hunger += 1
-  }
+  this.hunger += 1
 }
 
 Monster.prototype.clean = function () {
   if (this.status === 'dead') {
     return
   }
-  if (this.cleanliness < 5) {
-    this.cleanliness += 1
-  }
+  this.cleanliness += 1
 }
 
 Monster.prototype.hoursSinceUpdate = function () {

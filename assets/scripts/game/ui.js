@@ -65,12 +65,16 @@ const addHandlebarsEvents = function () {
     getMonster(id)
   })
   $('.feed_monster').on('click', function (event) {
-    monster.feed()
-    updateAndGetMonster()
+    if (monster.hunger < 5) {
+      monster.feed()
+      updateAndGetMonster()
+    }
   })
   $('.clean_monster').on('click', function (event) {
-    monster.clean()
-    updateAndGetMonster()
+    if (monster.hunger < 5) {
+      monster.clean()
+      updateAndGetMonster()
+    }
   })
 }
 
