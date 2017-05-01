@@ -9,6 +9,7 @@ const monsterObject = require('./monster.js')
 const monster = new monsterObject.Monster()
 
 const getMonstersSuccess = function (data) {
+  store.data = data
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
   $('.content').empty()
   $('.content').append(showMonsterHTML)

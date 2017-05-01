@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store.js')
 
 const onGetMonsters = function () {
   event.preventDefault()
@@ -14,10 +15,12 @@ const onGetMonsters = function () {
 
 const onCreateMonster = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.createMonster(data)
-    .then(ui.createMonsterSuccess)
-    .catch(ui.createMonsterFailure)
+  if (store.data.monsters.length < 3) {
+    const data = getFormFields(this)
+    api.createMonster(data)
+      .then(ui.createMonsterSuccess)
+      .catch(ui.createMonsterFailure)
+  }
 }
 
 const onGoBackToOverview = function () {
