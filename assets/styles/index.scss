@@ -60,6 +60,24 @@ body {
   background-size: cover;
 }
 
+.bat-sad-alive{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/79xnxjJ.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bat-sad-dead{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/PaVXo56.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .squid-happy-alive{
   display: block;
   -moz-box-sizing: border-box;
@@ -68,12 +86,44 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.squid-sad-alive{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/LyoBZ3s.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.squid-sad-dead{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/AZbpNwy.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .ghost-happy-alive{
   display: block;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: url('http://i.imgur.com/9c6bY0X.png');
+  background: url('https://i.imgur.com/9c6bY0X.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ghost-sad-alive{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/SWhh5b8.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ghost-sad-dead{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://i.imgur.com/do3rtf3.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
