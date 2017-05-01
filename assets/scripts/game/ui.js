@@ -9,6 +9,12 @@ const monsterObject = require('./monster.js')
 const monster = new monsterObject.Monster()
 
 const getMonstersSuccess = function (data) {
+  // to-do: for each monster in data
+  // set monster object using stats for that monster
+  // check eatAndPoop()
+  //    if true, update monster and run get monster again
+  // check is dead
+  //  update image based on status
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
   $('.content').empty()
   $('.content').append(showMonsterHTML)
@@ -96,15 +102,13 @@ const updateMonsterFailure = function (error) {
 }
 
 const updateMonster = function () {
-  console.log('updating');
-  console.log(monster);
   const data = {'monster': {}}
   // strips prototypes off object for api consumption
   for (const key in monster) {
     if (typeof monster[key] === 'function') continue
     data.monster[key] = monster[key]
   }
-  console.log(data);
+  console.log('update data is', data);
   api.updateMonster(data)
     .then(updateMonsterSuccess)
     .catch(updateMonsterFailure)
