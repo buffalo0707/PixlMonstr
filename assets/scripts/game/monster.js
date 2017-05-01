@@ -22,13 +22,18 @@ const Monster = function (id,
 }
 
 Monster.prototype.feed = function () {
+  if (this.status === 'dead') {
+    return
+  }
   if (this.hunger < 5) {
     this.hunger += 1
   }
 }
 
 Monster.prototype.clean = function () {
-  console.log('cleaning!')
+  if (this.status === 'dead') {
+    return
+  }
   if (this.cleanliness < 5) {
     this.cleanliness += 1
   }

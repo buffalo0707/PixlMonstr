@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const gameUi = require('../game/ui.js')
 
 const changeElementDisplay = (elementClass, action) => {
   let displayStyle = ''
@@ -24,6 +25,7 @@ const signInSuccess = (data) => {
   changeElementDisplay('show-signed-in', 'show')
   changeElementDisplay('show-signed-out', 'hide')
   $('#sign-in-modal').modal('hide')
+  gameUi.getMonsters()
 }
 
 const signInFailure = (error) => {

@@ -54,6 +54,7 @@ const addHandlebarsEvents = function () {
   $('.delete_monster').on('click', function (event) {
     const id = $(event.target).parent().parent().parent().attr('data-id')
     $(event.target).parent().parent().remove()
+    $('.monster-detail').html("Take in, long your breath.<br>Keep trust and never kill the faith.<br>And end isn't the death.")
     api.deleteMonster(id)
       .then(deleteMonsterSuccess)
       .catch(deleteMonsterFailure)
@@ -64,13 +65,11 @@ const addHandlebarsEvents = function () {
   })
   $('.feed_monster').on('click', function (event) {
     monster.feed()
-    updateMonster()
-    getMonster(monster.id)
+    updateAndGetMonster()
   })
   $('.clean_monster').on('click', function (event) {
     monster.clean()
-    updateMonster()
-    getMonster(monster.id)
+    updateAndGetMonster()
   })
 }
 
@@ -86,7 +85,6 @@ const getMonsterSuccess = function (data) {
   setMonsterParams(data)
   if (monster.eatAndPoop()) {
     updateMonster()
-    getMonster(monster.id)
   }
   $('#monsters_overview').hide()
   $('#monster_details').show()
@@ -101,7 +99,7 @@ const getMonsterFailure = function (error) {
 }
 
 const updateMonsterSuccess = function () {
-
+  getMonsters()
 }
 
 const updateMonsterFailure = function (error) {
@@ -119,6 +117,24 @@ const updateMonster = function () {
     .catch(updateMonsterFailure)
 }
 
+const updateAndGetMonster = function () {
+  const data = {'monster': {}}
+  for (const key in monster) {
+    if (typeof monster[key] === 'function') continue
+    data.monster[key] = monster[key]
+  }
+  api.updateMonster(data)
+    .then(getMonsterOnUpdateSuccess)
+    .catch(updateMonsterFailure)
+}
+
+const getMonsterOnUpdateSuccess = function () {
+  const id = monster.id
+  api.getMonster(id)
+    .then(getMonsterSuccess)
+    .catch(getMonsterFailure)
+}
+
 const getMonster = function (id) {
   api.getMonster(id)
     .then(getMonsterSuccess)
@@ -134,9 +150,7 @@ const getMonsters = function () {
 const goBack = function () {
   $('#monsters_overview').show()
   $('#monster_details').hide()
-  api.getMonsters()
-    .then(getMonstersSuccess)
-    .catch(getMonstersFailure)
+  getMonsters()
 }
 
 module.exports = {
@@ -146,5 +160,6 @@ module.exports = {
   createMonsterFailure,
   deleteMonsterSuccess,
   deleteMonsterFailure,
+  getMonsters,
   goBack
 }
