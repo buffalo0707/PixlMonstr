@@ -62,11 +62,6 @@ const addHandlebarsEvents = function () {
     updateMonster()
     getMonster(monster.id)
   })
-  $('.play_with_monster').on('click', function (event) {
-    monster.play()
-    updateMonster()
-    getMonster(monster.id)
-  })
 }
 
 const setMonsterParams = function (data){
