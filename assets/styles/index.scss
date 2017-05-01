@@ -34,11 +34,21 @@ body {
 .monster-image-small {
   height: 100px;
   width: 100px;
+  margin: 0 auto;
 }
 
 .monster-image-large {
   height: 300px;
   width: 300px;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+}
+
+.game {
+  text-align: center;
 }
 
 .bat{

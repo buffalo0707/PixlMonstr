@@ -27,9 +27,7 @@ const getMonstersFailure = function () {
 }
 
 const createMonsterSuccess = function (data) {
-  const showMonsterHTML = showMonstersTemplate({ monsters: data })
-  $('.content').append(showMonsterHTML)
-  addHandlebarsEvents()
+  getMonsters()
 }
 
 const createMonsterFailure = function () {
@@ -119,6 +117,12 @@ const getMonster = function (id) {
   api.getMonster(id)
     .then(getMonsterSuccess)
     .catch(getMonsterFailure)
+}
+
+const getMonsters = function () {
+  api.getMonsters()
+    .then(getMonstersSuccess)
+    .catch(getMonstersFailure)
 }
 
 const goBack = function () {
