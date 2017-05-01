@@ -9,13 +9,23 @@ const monsterObject = require('./monster.js')
 const monster = new monsterObject.Monster()
 
 const getMonstersSuccess = function (data) {
+  store.data = data
   // to-do: for each monster in data
   // set monster object using stats for that monster
   // check eatAndPoop()
   //    if true, update monster and run get monster again
   // check is dead
   //  update image based on status
-  store.data = data
+
+  store.data.monsters.forEach(function (e) {
+    for (const key in monster) {
+      if (monster.hasOwnProperty(key)) {
+        monster[key] = e[key]
+      }
+      if(monster.eatAndPoop()) updateMonster()
+    }
+  })
+
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
   $('.content').empty()
   $('.content').append(showMonsterHTML)
@@ -64,7 +74,7 @@ const addHandlebarsEvents = function () {
   })
 }
 
-const setMonsterParams = function (data){
+const setMonsterParams = function (data) {
   for (const key in monster) {
     if (monster.hasOwnProperty(key)) {
       monster[key] = data.monster[key]
@@ -74,7 +84,10 @@ const setMonsterParams = function (data){
 
 const getMonsterSuccess = function (data) {
   setMonsterParams(data)
-  if (monster.eatAndPoop()) updateMonster()
+  if (monster.eatAndPoop()) {
+    updateMonster()
+    getMonster(monster.id)
+  }
   $('#monsters_overview').hide()
   $('#monster_details').show()
   const showMonsterHTML = showMonsterDetailTemplate({monster})
@@ -88,7 +101,7 @@ const getMonsterFailure = function (error) {
 }
 
 const updateMonsterSuccess = function () {
-  getMonster(monster.id)
+
 }
 
 const updateMonsterFailure = function (error) {
@@ -97,12 +110,10 @@ const updateMonsterFailure = function (error) {
 
 const updateMonster = function () {
   const data = {'monster': {}}
-  // strips prototypes off object for api consumption
   for (const key in monster) {
     if (typeof monster[key] === 'function') continue
     data.monster[key] = monster[key]
   }
-  console.log('update data is', data);
   api.updateMonster(data)
     .then(updateMonsterSuccess)
     .catch(updateMonsterFailure)

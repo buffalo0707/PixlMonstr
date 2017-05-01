@@ -75,7 +75,7 @@ Monster.prototype.eatAndPoop = function () {
     this.hunger = 0
   }
   if (this.cleanliness < 0) {
-    this.hunger = 0
+    this.cleanliness = 0
   }
   if (this.hunger === startHunger &&
       this.cleanliness === startCleanliness) return false
