@@ -7,7 +7,7 @@
 <div class="img-wrapper col-xs-12 col-sm-10 col-md-10 col-lg-8 col-centered">
   <img class="img-responsive {{monster.home}}">
   <div class="img-overlay">
-    <img class="monster-detail-image {{monster.type}}_{{monster.mood}}_{{monster.status}}">
+    <img class="{{monster.type}}_{{monster.mood}}_{{monster.status}} monster-size-{{monster.size}}">
   </div>
   <div class="img-overlay-hunger">
     <div class="lead">Hunger<meter low="3" high="4" max="5" value="{{monster.hunger}}" optimum="5"></meter></div>
@@ -19,5 +19,6 @@
 <div class="row">
   <img id="feed-monster" class="food">
 </div>
-<button id="delete-monster" data-id="{{monster.id}}" class="btn btn-secondary">Release Monster</button>
+<button id="delete-monster" data-id="{{monster.id}}" class="btn btn-secondary">Say Goodbye</button>
 </div>
+size is {{monster.size}}

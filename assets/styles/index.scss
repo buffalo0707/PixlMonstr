@@ -14,6 +14,10 @@ body {
   text-align: left;
 }
 
+.dark-text {
+  color: #000000;
+}
+
 .img-wrapper {
   position: relative;
 }
@@ -91,9 +95,35 @@ body {
   height: 0;
 }
 
-.monster-detail-image {
+.monster-size-0 {
+  height: auto;
+  width: 10%;
+  margin-top: 10%
+}
+.monster-size-1 {
+  height: auto;
+  width: 20%;
+  margin-top: 0%
+}
+.monster-size-2 {
+  height: auto;
+  width: 30%;
+  margin-top: -5%
+}
+.monster-size-3 {
   height: auto;
   width: 40%;
+  margin-top: -7%
+}
+.monster-size-4 {
+  height: auto;
+  width: 50%;
+  margin-top: -12%
+}
+.monster-size-5 {
+  height: auto;
+  width: 60%;
+  margin-top: -15%
 }
 
 .landing {

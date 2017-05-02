@@ -51,7 +51,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="sign-in-modalLabel">Sign In</h4>
+          <h4 class="modal-title dark-text" id="sign-in-modalLabel">Sign In</h4>
         </div>
         <form id="sign-in">
           <div class="modal-body">
@@ -61,7 +61,7 @@
             </div>
             <input required="true" class="form-control" type="email" name="credentials[email]" id="sign-in-email" placeholder="email address"></br>
             <input required="true" class="form-control" type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
-            <button id="sign-in-sign-up" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#sign-up-modal"> Not a user? Sign up!</button>
+            <button id="sign-in-sign-up" type="button" class="btn btn-secondary btn-sm dark-text" data-toggle="modal" data-target="#sign-up-modal"> Not a user? Sign up!</button>
           </div>
           <div class="modal-footer">
             <button id="sign-in-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -77,7 +77,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="sign-up-modalLabel">Sign Up</h4>
+          <h4 class="modal-title dark-text" id="sign-up-modalLabel">Sign Up</h4>
         </div>
         <form id="sign-up">
           <div class="modal-body">
@@ -103,7 +103,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="change-password-modalLabel">Change Password</h4>
+          <h4 class="modal-title dark-text" id="change-password-modalLabel">Change Password</h4>
         </div>
         <form id="change-password">
           <div class="modal-body">
@@ -129,14 +129,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="about-modalLabel">About</h4>
+          <h4 class="modal-title dark-text" id="about-modalLabel">About</h4>
         </div>
         <div class="modal-body">
-          <div class="page-header">
+          <div class="page-header dark-text">
             <h1>PixlMonster<br>
             <small> by Alan Henderson</small></h1>
-            <p class="lead">This site was made with love using:</p>
-            <ul class="list-group">
+            <p class="lead dark-text">This site was made with love using:</p>
+            <ul class="list-group dark-text">
               <li class="list-group-item">HTML/CSS</li>
               <li class="list-group-item">JavaScript</li>
               <li class="list-group-item">JQuery</li>
@@ -171,7 +171,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="create-monster-modalLabel">Change Password</h4>
+              <h4 class="modal-title dark-text" id="create-monster-modalLabel">New Monster</h4>
             </div>
 
             <div class="modal-body">
@@ -195,7 +195,7 @@
                 <div class="control-group">
                   <label class="control-label text-left" for="home-select">Home</label>
                   <div class="controls">
-                  <select class="form-control" name="monster[home]" id="home-select">
+                    <select class="form-control" name="monster[home]" id="home-select">
                       <option value="forest">Forest</option>
                       <option value="cave">Cave</option>
                     </select>
@@ -214,10 +214,9 @@
     <section id="monster_details" class="logout-hide game-inner-view">
       <div class="row monster-detail"></div>
 
-    <div class="row">
-    <button type="submit" id="back-to-overview" class="btn btn-primary">Back</button>
-  </div>
-
+      <div class="row">
+        <button type="submit" id="back-to-overview" class="btn btn-primary">Back</button>
+      </div>
     </section>
   </section>
 </body>

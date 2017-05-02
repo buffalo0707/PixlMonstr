@@ -11,7 +11,8 @@ const Monster = function (id,
                           poopRate,
                           boredRate,
                           status,
-                          home) {
+                          home,
+                          createdAt) {
   this.id = id
   this.name = name
   this.hunger = hunger
@@ -21,6 +22,7 @@ const Monster = function (id,
   this.updated_at = updatedAt
   this.status = status
   this.home = home
+  this.created_at = createdAt
 }
 
 Monster.prototype.feed = function () {
@@ -39,15 +41,31 @@ Monster.prototype.clean = function () {
 
 Monster.prototype.hoursSinceUpdate = function () {
   const today = new Date()
-  console.log("today is", today);
   const updatedDate = new Date(this.updated_at)
-  console.log('updated date is', updatedDate);
   let dateDiff = today.getTime() - updatedDate.getTime()
-  console.log("dateDiff is", dateDiff);
   dateDiff /= 1000
   dateDiff /= 60
   dateDiff /= 60
   return Math.floor(dateDiff)
+}
+
+Monster.prototype.hoursSinceCreated = function () {
+  const today = new Date()
+  const createdDate = new Date(this.created_at)
+  let dateDiff = today.getTime() - createdDate.getTime()
+  dateDiff /= 1000
+  dateDiff /= 60
+  dateDiff /= 60
+  return Math.floor(dateDiff)
+}
+
+Monster.prototype.grow = function () {
+  const hours = this.hoursSinceCreated()
+  let size = (hours / 24) - (hours % 24)
+  if (size > 5) size = 5
+  if (size < 0) size = 0
+  console.log(size);
+  return size
 }
 
 Monster.prototype.eatAndPoop = function () {
@@ -56,7 +74,10 @@ Monster.prototype.eatAndPoop = function () {
   const startCleanliness = this.cleanliness
   const eatRate = 1
   const poopRate = 1
-console.log("hours is: ", hours);
+  if (hours >= 2) {
+    this.hunger -= eatRate
+    this.cleanliness -= poopRate
+  }
   if (hours >= 4) {
     this.hunger -= eatRate
     this.cleanliness -= poopRate
@@ -66,10 +87,6 @@ console.log("hours is: ", hours);
     this.cleanliness -= poopRate
   }
   if (hours >= 12) {
-    this.hunger -= eatRate
-    this.cleanliness -= poopRate
-  }
-  if (hours >= 16) {
     this.hunger -= eatRate
     this.cleanliness -= poopRate
   }

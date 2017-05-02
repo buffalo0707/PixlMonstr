@@ -45,21 +45,13 @@ const deleteMonsterFailure = function () {
 }
 
 const addHandlebarsEvents = function () {
-  $('#delete-monster').on('click', function (event) {
-    const id = $(event.target).attr('data-id')
-    $(event.target).parent().remove()
-    $('.monster-detail').html("Take in, long your breath.<br>Keep trust and never kill the faith.<br>And end isn't the death.")
-    api.deleteMonster(id)
-      .then(deleteMonsterSuccess)
-      .catch(deleteMonsterFailure)
-  })
   $('.view_monster').on('click', function (event) {
     const id = $(event.target).attr('data-id')
     getMonster(id)
   })
 
   $('#poop-image').on('click', function (event) {
-    if (monster.hunger < 5 && monster.status !== 'dead') {
+    if (monster.cleanliness < 5 && monster.status !== 'dead') {
       monster.clean()
       updateAndGetMonster()
     }
@@ -73,6 +65,14 @@ const addHandlebarsEvents = function () {
       updateAndGetMonster()
     }
   })
+$('#delete-monster').on('click', function (event) {
+  const id = $(event.target).attr('data-id')
+  $(event.target).parent().remove()
+  $('.monster-detail').html("Take in, long your breath.<br>Keep trust and never kill the faith.<br>And end isn't the death.")
+  api.deleteMonster(id)
+    .then(deleteMonsterSuccess)
+    .catch(deleteMonsterFailure)
+})
 }
 
 const setMonsterParams = function (data) {
@@ -88,6 +88,7 @@ const getMonsterSuccess = function (data) {
   if (monster.eatAndPoop()) {
     updateMonster()
   }
+  monster.size = monster.grow()
   $('#monsters_overview').hide()
   $('#monster_details').show()
   const showMonsterHTML = showMonsterDetailTemplate({monster})
