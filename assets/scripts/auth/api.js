@@ -18,7 +18,6 @@ const signIn = (data) => {
 }
 
 const signOut = () => {
-  console.log('token is', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
@@ -29,7 +28,6 @@ const signOut = () => {
 }
 
 const changePassword = (data) => {
-  console.log('data is:', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',

@@ -15,8 +15,8 @@ const getMonstersSuccess = function (data) {
       if (monster.hasOwnProperty(key)) {
         monster[key] = e[key]
       }
-      if (monster.eatAndPoop()) updateMonster()
     }
+    if (monster.eatAndPoop()) updateMonster()
   })
 
   const showMonsterHTML = showMonstersTemplate({ monsters: data.monsters })
@@ -45,9 +45,9 @@ const deleteMonsterFailure = function () {
 }
 
 const addHandlebarsEvents = function () {
-  $('.delete_monster').on('click', function (event) {
-    const id = $(event.target).parent().parent().parent().attr('data-id')
-    $(event.target).parent().parent().remove()
+  $('#delete-monster').on('click', function (event) {
+    const id = $(event.target).attr('data-id')
+    $(event.target).parent().remove()
     $('.monster-detail').html("Take in, long your breath.<br>Keep trust and never kill the faith.<br>And end isn't the death.")
     api.deleteMonster(id)
       .then(deleteMonsterSuccess)
@@ -57,18 +57,22 @@ const addHandlebarsEvents = function () {
     const id = $(event.target).parent().parent().attr('data-id')
     getMonster(id)
   })
-  $('.feed_monster').on('click', function (event) {
-    if (monster.hunger < 5) {
-      monster.feed()
-      updateAndGetMonster()
-    }
-  })
-  $('.clean_monster').on('click', function (event) {
-    if (monster.hunger < 5) {
+
+  $('#poop-image').on('click', function (event) {
+    if (monster.hunger < 5 && monster.status !== 'dead') {
       monster.clean()
       updateAndGetMonster()
     }
   })
+}
+
+const feedMonster = function (event) {
+  event.preventDefault()
+  console.log('feeding');
+  if (monster.hunger < 5 && monster.status !== 'dead') {
+    monster.feed()
+    updateAndGetMonster()
+  }
 }
 
 const setMonsterParams = function (data) {
@@ -159,5 +163,6 @@ module.exports = {
   deleteMonsterSuccess,
   deleteMonsterFailure,
   getMonsters,
-  goBack
+  goBack,
+  feedMonster
 }

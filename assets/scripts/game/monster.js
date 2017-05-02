@@ -39,8 +39,11 @@ Monster.prototype.clean = function () {
 
 Monster.prototype.hoursSinceUpdate = function () {
   const today = new Date()
-  const upatedDate = new Date(this.updated_at)
-  let dateDiff = today.getTime() - upatedDate.getTime()
+  console.log("today is", today);
+  const updatedDate = new Date(this.updated_at)
+  console.log('updated date is', updatedDate);
+  let dateDiff = today.getTime() - updatedDate.getTime()
+  console.log("dateDiff is", dateDiff);
   dateDiff /= 1000
   dateDiff /= 60
   dateDiff /= 60
@@ -53,7 +56,7 @@ Monster.prototype.eatAndPoop = function () {
   const startCleanliness = this.cleanliness
   const eatRate = 1
   const poopRate = 1
-
+console.log("hours is: ", hours);
   if (hours >= 4) {
     this.hunger -= eatRate
     this.cleanliness -= poopRate
