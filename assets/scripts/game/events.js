@@ -47,8 +47,11 @@ const addHandlers = () => {
     $(this).find('form')[0].reset()
     $('#change-password-alert').hide()
   })
-
-
+  $('#new-monster-button').on('click', function () {
+    if (store.data.monsters.length < 3) {
+      $('#create-monster-modal').modal('show')
+    }
+  })
 }
 
 module.exports = {
