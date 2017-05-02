@@ -8,8 +8,55 @@ body {
   background-color: $game-background-color;
   color: $light-text-color;
   padding-top: 65px;
-
 }
+
+.form-horizontal .control-label {
+  color: #000000;
+  text-align: left;
+  }
+
+  .img-wrapper {
+    position: relative;
+
+   }
+   .img-responsive {
+     margin: 0 auto;
+     display: block;
+     width: 100%;
+   }
+
+  .img-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    max-width: 100%;
+    max-height: auto;
+  }
+  .img-overlay-hunger{
+    position: absolute;
+    top: 0;
+    text-align: center;
+  }
+
+  .img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 30%;
+  }
+  .img-overlay-hunger:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 0%;
+  }
+  .monster-detail-image {
+    height: auto;
+    width: 40%;
+  }
 
 .landing {
   background-image: url('../images/cave.jpg');
