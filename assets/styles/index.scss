@@ -68,19 +68,16 @@ body {
   .img-overlay:before {
     content: ' ';
     display: block;
-    /* adjust 'height' to position overlay content vertically */
     height: 30%;
   }
   .img-overlay-hunger:before {
     content: ' ';
     display: block;
-    /* adjust 'height' to position overlay content vertically */
     height: 0%;
   }
   .img-overlay-poop:before {
     content: ' ';
     display: block;
-    /* adjust 'height' to position overlay content vertically */
     height: 0%;
   }
   .monster-detail-image {
@@ -109,8 +106,8 @@ body {
 }
 
 .monster-image-small {
-  height: 100px;
-  width: 100px;
+  height: auto;
+  width: 100%;
   margin: 0 auto;
 }
 
