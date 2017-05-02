@@ -54,7 +54,7 @@ const addHandlebarsEvents = function () {
       .catch(deleteMonsterFailure)
   })
   $('.view_monster').on('click', function (event) {
-    const id = $(event.target).parent().parent().attr('data-id')
+    const id = $(event.target).attr('data-id')
     getMonster(id)
   })
 
