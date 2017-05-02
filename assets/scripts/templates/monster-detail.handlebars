@@ -5,19 +5,19 @@
 </div>
 </div>
 <div class="img-wrapper col-xs-12 col-sm-10 col-md-10 col-lg-8 col-centered">
-  <img class="img-responsive" src="assets/images/{{monster.home}}.png">
+  <img class="img-responsive" src="./assets/images/{{monster.home}}.png">
   <div class="img-overlay">
-    <img class="monster-detail-image" src="assets/images/{{monster.type}}_{{monster.mood}}_{{monster.status}}.png">
+    <img class="monster-detail-image" src="./assets/images/{{monster.type}}_{{monster.mood}}_{{monster.status}}.png">
   </div>
   <div class="img-overlay-hunger">
     <div class="lead">Hunger<meter low="3" high="4" max="5" value="{{monster.hunger}}" optimum="5"></meter></div>
   </div>
   <div class="img-overlay-poop col-centered">
-    <img id="poop-image" class="img-responsive poop-{{monster.cleanliness}}" src="assets/images/poop.png">
+    <img id="poop-image" class="img-responsive poop-{{monster.cleanliness}}" src="./assets/images/poop.png">
   </div>
 </div>
 <div class="row">
-  <img id="feed-monster" src="assets/images/feed.png">
+  <img id="feed-monster" src="./assets/images/feed.png">
 </div>
 <button id="delete-monster" data-id="{{monster.id}}" class="btn btn-secondary">Release Monster</button>
 </div>
