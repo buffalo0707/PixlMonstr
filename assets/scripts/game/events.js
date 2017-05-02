@@ -35,6 +35,20 @@ const addHandlers = () => {
   $('#create-monster-modal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()
   })
+  $('#sign-in-modal').on('hidden.bs.modal', function () {
+    $(this).find('form')[0].reset()
+    $('#sign-in-alert').hide()
+  })
+  $('#sign-up-modal').on('hidden.bs.modal', function () {
+    $(this).find('form')[0].reset()
+    $('#sign-up-alert').hide()
+  })
+  $('#change-password-modal').on('hidden.bs.modal', function () {
+    $(this).find('form')[0].reset()
+    $('#change-password-alert').hide()
+  })
+
+
 }
 
 module.exports = {

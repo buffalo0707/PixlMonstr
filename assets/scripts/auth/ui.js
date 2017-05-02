@@ -13,10 +13,11 @@ const changeElementDisplay = (elementClass, action) => {
 }
 
 const signUpSuccess = (data) => {
+  $('#sign-up-modal').modal('hide')
 }
 
-const signUpFailure = (error) => {
-  console.error(error)
+const signUpFailure = () => {
+  $('#sign-up-alert').show()
 }
 
 const signInSuccess = (data) => {
@@ -28,8 +29,8 @@ const signInSuccess = (data) => {
   gameUi.getMonsters()
 }
 
-const signInFailure = (error) => {
-  console.log('failure', error)
+const signInFailure = () => {
+  $('#sign-in-alert').show()
 }
 
 const signOutSuccess = () => {
@@ -43,7 +44,7 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = (error) => {
-  console.log('signOut failure ran. error is:', error)
+
 }
 
 const changePasswordSuccess = () => {
@@ -52,6 +53,7 @@ const changePasswordSuccess = () => {
 
 const changePasswordFailure = (error) => {
   console.log('changePassword failure ran. error is:', error)
+  $('#change-password-alert').show()
 }
 
 module.exports = {

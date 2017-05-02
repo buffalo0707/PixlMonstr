@@ -163,7 +163,6 @@
   </section>
   <section id="game_content" class="show-signed-in game">
     <section id="monsters_overview">
-      <p><a class="btn btn-primary btn-lg" role="button" id="get-monsters">get monsters</a></p>
       <div class="row content"></div>
       <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#create-monster-modal">New Monster</a></p>
 
@@ -180,11 +179,18 @@
                   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                   <span class="sr-only"></span> Make sure you enter your old and new password.
                 </div>
+                <div class="form-group">
                 <input required="true" class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
-                  <select class="form-control" name=monster[type]> <!--Supplement an id here instead of using 'name'-->
+                  <label class="control-label" for="type-select">Type</label>
+                  <select class="form-control" name="monster[type]" id="type-select">
                     <option value="bat">Bat</option>
                     <option value="ghost">Ghost</option>
                     <option value="squid">Squid</option>
+                  </select>
+                  <label class="control-label" for="home-select">Home</label>
+                  <select class="form-control" name="monster[home]" id="home-select">
+                    <option value="Forest">Forest</option>
+                    <option value="Cave">Cave</option>
                   </select>
                   <button id="create-monster" type="submit" class="btn btn-primary">Create Monster</button>
                 </form>

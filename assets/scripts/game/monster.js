@@ -10,7 +10,8 @@ const Monster = function (id,
                           eatRate,
                           poopRate,
                           boredRate,
-                          status) {
+                          status,
+                          home) {
   this.id = id
   this.name = name
   this.hunger = hunger
@@ -19,6 +20,7 @@ const Monster = function (id,
   this.cleanliness = cleanliness
   this.updated_at = updatedAt
   this.status = status
+  this.home = home
 }
 
 Monster.prototype.feed = function () {
