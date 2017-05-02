@@ -1,12 +1,9 @@
 {{#each monsters as |monster|}}
  <div class="col-sm-2 text-center col-centered">
-<img class="monster-image-small {{monster.type}}-{{monster.mood}}-{{monster.status}}" src=""</div>
+   <img class="monster-image-small" src="assets/images/{{monster.type}}_{{monster.mood}}_{{monster.status}}.png"</div>
   <ul class="list-unstyled" data-id="{{monster.id}}">
     <li>Name: {{monster.name}} </li>
-    <li>Hunger: {{monster.hunger}}</li>
-    <li>Mood: {{monster.mood}}</li>
-    <li>Cleanliness: {{monster.cleanliness}}</li>
-    <li><button data-id="{{monster.id}}" type="button" class="btn btn-primary btn-lg view_monster">View</button></li>
+    <li><button data-id="{{monster.id}}" type="button" class="btn btn-primary btn-sm view_monster">View</button></li>
   </ul>
 </div>
 {{else}}
