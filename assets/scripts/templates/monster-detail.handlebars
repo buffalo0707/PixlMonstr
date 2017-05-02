@@ -25,5 +25,8 @@
     <img class="monster-detail-image" src="assets/images/{{monster.type}}_{{monster.mood}}_{{monster.status}}.png">
   </div>
   <div class="img-overlay-hunger">
-    <div class="lead">Hunger <meter low="3" high="4" max="5" value="{{monster.hunger}}" optimum="5"></meter></div>
+    <div class="lead">Hunger<meter low="3" high="4" max="5" value="{{monster.hunger}}" optimum="5"></meter></div>
+  </div>
+  <div class="img-overlay-poop col-centered">
+    <img id="poop-image" class="img-responsive poop-{{monster.cleanliness}}" src="assets/images/poop.png">
   </div>

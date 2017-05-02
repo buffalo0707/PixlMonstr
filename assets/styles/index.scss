@@ -40,7 +40,31 @@ body {
     top: 0;
     text-align: center;
   }
-
+  .img-overlay-poop{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+  }
+  .poop-5{
+    visibility: hidden
+  }
+  .poop-4{
+    width: 10%;
+  }
+  .poop-3{
+    width: 20%;
+  }
+  .poop-2{
+    width: 40%;
+  }
+  .poop-1{
+    width: 50%;
+  }
+  .poop-0{
+    width: 60%;
+  }
   .img-overlay:before {
     content: ' ';
     display: block;
@@ -48,6 +72,12 @@ body {
     height: 30%;
   }
   .img-overlay-hunger:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 0%;
+  }
+  .img-overlay-poop:before {
     content: ' ';
     display: block;
     /* adjust 'height' to position overlay content vertically */
