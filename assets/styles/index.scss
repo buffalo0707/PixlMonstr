@@ -1,6 +1,5 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-
 $light-text-color: #fff;
 $game-background-color: #2d3a42;
 
@@ -13,77 +12,89 @@ body {
 .form-horizontal .control-label {
   color: #000000;
   text-align: left;
-  }
+}
 
-  .img-wrapper {
-    position: relative;
+.img-wrapper {
+  position: relative;
+}
 
-   }
-   .img-responsive {
-     margin: 0 auto;
-     display: block;
-     width: 100%;
-   }
+.img-responsive {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
 
-  .img-overlay{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    max-width: 100%;
-    max-height: auto;
-  }
-  .img-overlay-hunger{
-    position: absolute;
-    top: 0;
-    text-align: center;
-  }
-  .img-overlay-poop{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    text-align: center;
-  }
-  .poop-5{
-    visibility: hidden
-  }
-  .poop-4{
-    width: 10%;
-  }
-  .poop-3{
-    width: 20%;
-  }
-  .poop-2{
-    width: 40%;
-  }
-  .poop-1{
-    width: 50%;
-  }
-  .poop-0{
-    width: 60%;
-  }
-  .img-overlay:before {
-    content: ' ';
-    display: block;
-    height: 30%;
-  }
-  .img-overlay-hunger:before {
-    content: ' ';
-    display: block;
-    height: 0%;
-  }
-  .img-overlay-poop:before {
-    content: ' ';
-    display: block;
-    height: 0%;
-  }
-  .monster-detail-image {
-    height: auto;
-    width: 40%;
-  }
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.img-overlay-hunger {
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+.img-overlay-poop {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
+.poop-5 {
+  visibility: hidden;
+}
+
+.poop-4 {
+  width: 10%;
+}
+
+.poop-3 {
+  width: 20%;
+}
+
+.poop-2 {
+  width: 40%;
+}
+
+.poop-1 {
+  width: 50%;
+}
+
+.poop-0 {
+  width: 60%;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  height: 30%;
+}
+
+.img-overlay-hunger:before {
+  content: ' ';
+  display: block;
+  height: 0;
+}
+
+.img-overlay-poop:before {
+  content: ' ';
+  display: block;
+  height: 0;
+}
+
+.monster-detail-image {
+  height: auto;
+  width: 40%;
+}
 
 .landing {
   background-image: url('../images/cave.jpg');
@@ -117,10 +128,62 @@ body {
 }
 
 .col-centered {
-    display:inline-block;
-    float:none;
+  display: inline-block;
+  float: none;
 }
 
 .game {
   text-align: center;
+}
+
+.bat_happy_alive {
+  content: url('https://i.imgur.com/QLNTw4p.png');
+}
+
+.bat_sad_alive {
+  content: url('https://i.imgur.com/pE8hFR6.png');
+}
+
+.bat_sad_dead {
+  content: url('https://i.imgur.com/ORzy6zW.png');
+}
+
+.ghost_happy_alive {
+  content: url('https://i.imgur.com/9c6bY0X.png');
+}
+
+.ghost_sad_alive {
+  content: url('https://i.imgur.com/SWhh5b8.png');
+}
+
+.ghost_sad_dead {
+  content: url('https://i.imgur.com/do3rtf3.png');
+}
+
+.squid_happy_alive {
+  content: url('https://i.imgur.com/AhF7kvd.png');
+}
+
+.squid_sad_alive {
+  content: url('https://i.imgur.com/LyoBZ3s.png');
+}
+
+.squid_sad_dead {
+  content: url('https://i.imgur.com/AxnoQFP.png');
+}
+
+.cave {
+  content: url('https://i.imgur.com/4sn3joe.png');
+}
+
+.forest {
+  content: url('https://i.imgur.com/B1fy0ZZ.png');
+}
+
+.poop {
+  content: url('https://i.imgur.com/nIvy1cp.png');
+}
+
+.food {
+  content: url('https://i.imgur.com/nLuTJqQ.png');
 }

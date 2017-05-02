@@ -64,15 +64,15 @@ const addHandlebarsEvents = function () {
       updateAndGetMonster()
     }
   })
-}
 
-const feedMonster = function (event) {
-  event.preventDefault()
-  console.log('feeding');
-  if (monster.hunger < 5 && monster.status !== 'dead') {
-    monster.feed()
-    updateAndGetMonster()
-  }
+  $('#feed-monster').on('click', function (event) {
+    event.preventDefault()
+    console.log('feeding');
+    if (monster.hunger < 5 && monster.status !== 'dead') {
+      monster.feed()
+      updateAndGetMonster()
+    }
+  })
 }
 
 const setMonsterParams = function (data) {
@@ -163,6 +163,5 @@ module.exports = {
   deleteMonsterSuccess,
   deleteMonsterFailure,
   getMonsters,
-  goBack,
-  feedMonster
+  goBack
 }
