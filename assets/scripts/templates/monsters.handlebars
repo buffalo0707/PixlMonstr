@@ -1,6 +1,10 @@
+
+{{#if monsters}}
+<h3>Select a monster to interact with it!</h3>
+{{/if}}
 {{#each monsters as |monster|}}
- <div class="col-xs-6 col-sm-2 col-sm-3 col-md-3 col-lg-3 text-center col-centered">
-   <img class="monster-image-small view_monster" src="assets/images/{{monster.type}}_{{monster.mood}}_{{monster.status}}.png" data-id="{{monster.id}}"></div>
+ <div class="col-xs-6 col-sm-2 col-sm-3 col-md-3 col-lg-2 text-center col-centered">
+   <img class="monster-image-small view_monster" src="assets/images/{{monster.type}}_{{monster.mood}}_{{monster.status}}.png" data-id="{{monster.id}}">
   <ul class="list-unstyled" data-id="{{monster.id}}">
     <li>Name: {{monster.name}} </li>
   </ul>
@@ -10,5 +14,6 @@
 <h2>Welcome to PixlMonster!</h2>
 <p class="lead">You currently have no monsters. <br> Why don't you create one?</p>
 <p class="lead">But beware - monsters are hungry and will require your constant attention!</p>
+<p class="lead">After you have created your monster, you will need to periodically feed and clean up after it. Failing to do so, will result in its certain doom...</p>
 </div>
 {{/each}}
