@@ -10,19 +10,12 @@ const monster = new monsterObject.Monster()
 
 const getMonstersSuccess = function (data) {
   store.data = data
-  // to-do: for each monster in data
-  // set monster object using stats for that monster
-  // check eatAndPoop()
-  //    if true, update monster and run get monster again
-  // check is dead
-  //  update image based on status
-
   store.data.monsters.forEach(function (e) {
     for (const key in monster) {
       if (monster.hasOwnProperty(key)) {
         monster[key] = e[key]
       }
-      if(monster.eatAndPoop()) updateMonster()
+      if (monster.eatAndPoop()) updateMonster()
     }
   })
 
@@ -38,7 +31,7 @@ const getMonstersFailure = function () {
 
 const createMonsterSuccess = function (data) {
   getMonsters()
-  $('#create-monster-modal').modal('toggle');
+  $('#create-monster-modal').modal('toggle')
 }
 
 const createMonsterFailure = function () {

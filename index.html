@@ -164,7 +164,7 @@
   <section id="game_content" class="show-signed-in game">
     <section id="monsters_overview">
       <div class="row content"></div>
-      <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#create-monster-modal">New Monster</a></p>
+      <p><a id="new-monster-button" class="btn btn-primary btn-lg" role="button" data-toggle="modal">New Monster</a></p>
 
       <!-- New Monster Modal -->
       <div class="modal fade" id="create-monster-modal" tabindex="-1" role="dialog" aria-labelledby="create-monster-modalLabel">
@@ -173,36 +173,43 @@
             <div class="modal-header">
               <h4 class="modal-title" id="create-monster-modalLabel">Change Password</h4>
             </div>
-            <form id="create-monster">
-              <div class="modal-body">
-                <div id="create-monster-alert" class="alert alert-danger" role="alert">
-                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                  <span class="sr-only"></span> Make sure you enter your old and new password.
+
+            <div class="modal-body">
+              <div id="create-monster-alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only"></span> Make sure you enter your old and new password.
+              </div>
+              <form class="form-horizontal" id="create-monster">
+                <div class="control-group">
+                  <label class="control-label" for="monster-name">Name</label>
+                  <input required="true" class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
                 </div>
-                <div class="form-group">
-                <input required="true" class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
+                <div class="control-group">
                   <label class="control-label" for="type-select">Type</label>
                   <select class="form-control" name="monster[type]" id="type-select">
-                    <option value="bat">Bat</option>
-                    <option value="ghost">Ghost</option>
-                    <option value="squid">Squid</option>
-                  </select>
-                  <label class="control-label" for="home-select">Home</label>
+                      <option value="bat">Bat</option>
+                      <option value="ghost">Ghost</option>
+                      <option value="squid">Squid</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                  <label class="control-label text-left" for="home-select">Home</label>
+                  <div class="controls">
                   <select class="form-control" name="monster[home]" id="home-select">
-                    <option value="Forest">Forest</option>
-                    <option value="Cave">Cave</option>
-                  </select>
-                  <button id="create-monster" type="submit" class="btn btn-primary">Create Monster</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              </div>
-            </form>
+                      <option value="forest">Forest</option>
+                      <option value="cave">Cave</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Monster</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- End Modal -->
+        <!-- End Modal -->
     </section>
     <section id="monster_details" class="logout-hide game-inner-view">
       <div class="row monster-detail"></div>
