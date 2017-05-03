@@ -68,7 +68,7 @@ const addHandlebarsEvents = function () {
 $('#delete-monster').on('click', function (event) {
   const id = $(event.target).attr('data-id')
   $(event.target).parent().remove()
-  $('.monster-detail').html("Take in, long your breath.<br>Keep trust and never kill the faith.<br>And end isn't the death.")
+  $('.monster-detail').html("<p class=\"lead\">Take in, long your breath.<br>Keep trust and never kill the faith.<br>And end isn't the death.</p>")
   api.deleteMonster(id)
     .then(deleteMonsterSuccess)
     .catch(deleteMonsterFailure)

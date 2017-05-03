@@ -8,6 +8,9 @@ body {
   color: $light-text-color;
   padding-top: 65px;
 }
+.navbar-toggle {
+  margin-right: 50px;
+}
 
 .form-horizontal .control-label {
   color: #000000;
@@ -20,6 +23,7 @@ body {
 
 .img-wrapper {
   position: relative;
+  margin-top: -15px;
 }
 
 .img-responsive {

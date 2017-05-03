@@ -14,6 +14,7 @@ const changeElementDisplay = (elementClass, action) => {
 
 const signUpSuccess = (data) => {
   $('#sign-up-modal').modal('hide')
+  $('#sign-in-alert').hide()
 }
 
 const signUpFailure = () => {
@@ -22,6 +23,7 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   console.log('success', data)
+  $('#sign-in-alert').hide()
   store.user = data.user
   changeElementDisplay('show-signed-in', 'show')
   changeElementDisplay('show-signed-out', 'hide')
@@ -49,6 +51,7 @@ const signOutFailure = (error) => {
 
 const changePasswordSuccess = () => {
   $('#change-password-modal').modal('hide')
+  $('#change-password-alert').hide()
 }
 
 const changePasswordFailure = (error) => {
