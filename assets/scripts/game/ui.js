@@ -58,16 +58,16 @@ const addHandlebarsEvents = function () {
   })
 
   $('#feed-monster').on('click', function (event) {
+    $('#monster-image').removeClass('spin')
     if (monster.status !== 'dead') {
       event.preventDefault()
-      $('#monster-image').addClass('spin')
+      setTimeout(function () {
+        $('#monster-image').addClass('spin')
+      }, 100)
       if (monster.hunger < 5) {
         monster.feed()
         updateAndGetMonster()
       }
-      setTimeout(function () {
-        $('#monster-image').removeClass('spin')
-      }, 1200)
     }
   })
 
