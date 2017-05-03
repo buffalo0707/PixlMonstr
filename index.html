@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PixlMonstr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
+
+  <!-- Compiled and minified JavaScript -->
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
+</head>
+
+<body class="container-fluid">
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-left navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+  </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left show-signed-in">
+          <li id="sign-out-nav"><a href=#>Sign Out</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left show-signed-out">
+          <li id="sign-in-nav" data-toggle="modal" data-target="#sign-in-modal" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><a href=#>Sign In</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left show-signed-out">
+          <li id="sign-up-nav" data-toggle="modal" data-target="#sign-up-modal"><a href=#>Sign Up</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left show-signed-in">
+          <li id="change-password-nav" data-toggle="modal" data-target="#change-password-modal"><a href=#>Change Password</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li id="about-nav" data-toggle="modal" data-target="#about-modal"><a href=#>About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Sign-inModal -->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title dark-text" id="sign-in-modalLabel">Sign In</h4>
+        </div>
+        <form id="sign-in">
+          <div class="modal-body">
+            <div id="sign-in-alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Uh oh!:</span> Unable to login with this email and password
+            </div>
+            <input required="true" class="form-control" type="email" name="credentials[email]" id="sign-in-email" placeholder="email address"></br>
+            <input required="true" class="form-control" type="password" name="credentials[password]" id="sign-in-password" placeholder="password"></br>
+            <button id="sign-in-sign-up" type="button" class="btn btn-secondary btn-sm dark-text" data-toggle="modal" data-target="#sign-up-modal"> Not a user? Sign up!</button>
+          </div>
+          <div class="modal-footer">
+            <button id="sign-in-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- Sign-up Modal -->
+  <div class="modal" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title dark-text" id="sign-up-modalLabel">Sign Up</h4>
+        </div>
+        <form id="sign-up">
+          <div class="modal-body">
+            <div id="sign-up-alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Uh oh!:</span> Sign up failed. You probably did it wrong.
+            </div>
+            <input required="true" class="form-control" type="email" name="credentials[email]" id="sign-up-email" placeholder="email address"></br>
+            <input required="true" class="form-control" type="password" name="credentials[password]" id="sign-up-password" placeholder="password"></br>
+            <input required="true" class="form-control" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="confirm password"></br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="change-password-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title dark-text" id="change-password-modalLabel">Change Password</h4>
+        </div>
+        <form id="change-password">
+          <div class="modal-body">
+            <div id="change-password-alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only"></span> Make sure you enter your old and new password.
+            </div>
+
+            <input required="true" id="current-password" class="form-control" type="password" name="passwords[old]" placeholder="current password"></br>
+            <input required="true" id="new-password" class="form-control" type="password" name="passwords[new]" placeholder="new password"></br>
+          </div>
+          <div class="modal-footer">
+            <button id="change-password-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button id="change-password-submit" type="submit" class="btn btn-primary">Change Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- About Modal -->
+  <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title dark-text" id="about-modalLabel">About</h4>
+        </div>
+        <div class="modal-body">
+          <div class="page-header dark-text">
+            <h1>PixlMonster<br>
+            <small> by Alan Henderson</small></h1>
+            <p class="lead dark-text">This site was made with love using:</p>
+            <ul class="list-group dark-text">
+              <li class="list-group-item">HTML/CSS</li>
+              <li class="list-group-item">JavaScript</li>
+              <li class="list-group-item">JQuery</li>
+              <li class="list-group-item">Bootstrap</li>
+              <li class="list-group-item">Handlebars</li>
+              <li class="list-group-item">Ruby on Rails</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <section class="landing show-signed-out">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>pixlmonstr</h1>
+        <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#sign-in-modal">Sign In &raquo;</a></p>
+      </div>
+    </div>
+  </section>
+  <section id="game_content" class="show-signed-in game">
+    <section id="monsters_overview" class="show-signed-in">
+      <div class="row content"></div>
+      <p><a id="new-monster-button" class="btn btn-primary btn-lg" role="button" data-toggle="modal">New Monster</a></p>
+
+      <!-- New Monster Modal -->
+      <div class="modal fade" id="create-monster-modal" tabindex="-1" role="dialog" aria-labelledby="create-monster-modalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title dark-text" id="create-monster-modalLabel">New Monster</h4>
+            </div>
+
+            <div class="modal-body">
+              <div id="create-monster-alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only"></span> Make sure you enter your old and new password.
+              </div>
+              <form class="form-horizontal" id="create-monster">
+                <div class="control-group">
+                  <label class="control-label" for="monster-name">Name</label>
+                  <input required="true" class="form-control" type="text" name="monster[name]" id="monster-name" placeholder="monster name"></br>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="type-select">Type</label>
+                  <select class="form-control" name="monster[type]" id="type-select">
+                      <option value="bat">Bat</option>
+                      <option value="ghost">Ghost</option>
+                      <option value="squid">Squid</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                  <label class="control-label text-left" for="home-select">Home</label>
+                  <div class="controls">
+                    <select class="form-control" name="monster[home]" id="home-select">
+                      <option value="forest">Forest</option>
+                      <option value="cave">Cave</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Monster</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <!-- End Modal -->
+    </section>
+    <section id="monster_details" class="logout-hide game-inner-view">
+      <div class="row monster-detail"></div>
+
+      <div class="row">
+        <button type="submit" id="back-to-overview" class="btn btn-primary">Back</button>
+      </div>
+    </section>
+  </section>
+</body>
+
+</html>
