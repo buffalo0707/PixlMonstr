@@ -8,7 +8,8 @@ Intended to be used in conjunction with PixlMonster-api
 
 # Deployed URL
 
-[https://buffalo0707.github.io/PixlMonstr-Client/] https://buffalo0707.github.io/PixlMonstr-Client/
+Front-End Deploy: https://buffalo0707.github.io/PixlMonstr-Client/
+Back-End Repo:  https://github.com/buffalo0707/PixlMonster-api
 
 
 # Description and Rules
