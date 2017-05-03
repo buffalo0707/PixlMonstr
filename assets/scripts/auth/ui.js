@@ -22,7 +22,6 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (data) => {
-  console.log('success', data)
   $('#sign-in-alert').hide()
   store.user = data.user
   changeElementDisplay('show-signed-in', 'show')
@@ -36,16 +35,14 @@ const signInFailure = () => {
 }
 
 const signOutSuccess = () => {
-  console.log('signOut success ran and nothing was returned')
   store.user = {}
   changeElementDisplay('show-signed-in', 'hide')
   changeElementDisplay('logout-hide', 'hide')
   changeElementDisplay('show-signed-out', 'show')
   $('.content').empty()
-
 }
 
-const signOutFailure = (error) => {
+const signOutFailure = () => {
 
 }
 
@@ -54,8 +51,7 @@ const changePasswordSuccess = () => {
   $('#change-password-alert').hide()
 }
 
-const changePasswordFailure = (error) => {
-  console.log('changePassword failure ran. error is:', error)
+const changePasswordFailure = () => {
   $('#change-password-alert').show()
 }
 

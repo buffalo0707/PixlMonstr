@@ -24,7 +24,6 @@ const onCreateMonster = function (event) {
 }
 
 const onGoBackToOverview = function () {
-  console.log('go back')
   ui.goBack()
 }
 
@@ -32,11 +31,11 @@ const addHandlers = () => {
   $('#get-monsters').on('click', onGetMonsters)
   $('#create-monster').on('submit', onCreateMonster)
   $('#back-to-overview').on('click', onGoBackToOverview)
-  $(document).on('click','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') ) {
-        $(this).collapse('hide');
+  $(document).on('click', '.navbar-collapse.in', function (e) {
+    if ($(e.target).is('a')) {
+      $(this).collapse('hide')
     }
-});
+  })
   $('#create-monster-modal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()
   })

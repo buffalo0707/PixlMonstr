@@ -64,7 +64,6 @@ Monster.prototype.grow = function () {
   let size = (hours / 24) - (hours % 24)
   if (size > 5) size = 5
   if (size < 0) size = 0
-  console.log(size);
   return size
 }
 
