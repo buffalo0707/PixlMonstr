@@ -59,7 +59,6 @@ const addHandlebarsEvents = function () {
 
   $('#feed-monster').on('click', function (event) {
     if (monster.status !== 'dead') {
-      document.getElementById('feed-monster').disabled = true
       event.preventDefault()
       $('#monster-image').addClass('spin')
       if (monster.hunger < 5) {
@@ -109,12 +108,10 @@ const getMonsterSuccess = function (data) {
 const getMonsterFailure = function () {}
 
 const updateMonsterSuccess = function () {
-  document.getElementById('feed-monster').disabled = false
   getMonsters()
 }
 
 const updateMonsterFailure = function () {
-  document.getElementById('feed-monster').disabled = false
 }
 
 const updateMonster = function () {
